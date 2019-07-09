@@ -1,0 +1,10 @@
+C:\Users\OZ\source\repos\LabelTool YoloV3\LabelTool YoloV3\bin\Debug\LabelTool YoloV3.exe.config
+C:\Users\OZ\source\repos\LabelTool YoloV3\LabelTool YoloV3\bin\Debug\LabelTool YoloV3.exe
+C:\Users\OZ\source\repos\LabelTool YoloV3\LabelTool YoloV3\bin\Debug\LabelTool YoloV3.pdb
+C:\Users\OZ\source\repos\LabelTool YoloV3\LabelTool YoloV3\obj\Debug\LabelTool YoloV3.csprojAssemblyReference.cache
+C:\Users\OZ\source\repos\LabelTool YoloV3\LabelTool YoloV3\obj\Debug\LabelTool_YoloV3.Form1.resources
+C:\Users\OZ\source\repos\LabelTool YoloV3\LabelTool YoloV3\obj\Debug\LabelTool_YoloV3.Properties.Resources.resources
+C:\Users\OZ\source\repos\LabelTool YoloV3\LabelTool YoloV3\obj\Debug\LabelTool YoloV3.csproj.GenerateResource.cache
+C:\Users\OZ\source\repos\LabelTool YoloV3\LabelTool YoloV3\obj\Debug\LabelTool YoloV3.csproj.CoreCompileInputs.cache
+C:\Users\OZ\source\repos\LabelTool YoloV3\LabelTool YoloV3\obj\Debug\LabelTool YoloV3.exe
+C:\Users\OZ\source\repos\LabelTool YoloV3\LabelTool YoloV3\obj\Debug\LabelTool YoloV3.pdb
