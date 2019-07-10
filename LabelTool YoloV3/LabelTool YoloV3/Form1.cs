@@ -165,9 +165,9 @@ namespace LabelTool_YoloV3
         {
             p2 = e.Location;
             rectangles.Add(rectangle); // Çizilen dörtgeni listeye ekle.
-            yolos.Add(new YOLO());
-            selectedYolo++;
-            PrintRect(rectangle);
+            yolos.Add(new YOLO()); //Yolo listesine yeni bir yolo elemanı ekle.
+            yoloCounter++; //Sayacı arttır.
+            PrintRect(rectangle); //Dörtgenin yolo özelliklerini hesaplar.
             isMouseDown = false;
         }
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
@@ -218,7 +218,7 @@ namespace LabelTool_YoloV3
             public double[] LABEL { get; set; } //ETİKET
         }
         List<YOLO> yolos = new List<YOLO>();
-        private int selectedYolo = -1;
+        private int yoloCounter = -1;
 
         /// <summary>
         /// Dörtgenin yolo formatında özelliklerini yazdırır.
@@ -233,11 +233,56 @@ namespace LabelTool_YoloV3
             yolo.LABEL[3] = 1.0 / rect.Height;
             yolo.LABEL[0] *= yolo.LABEL[2];
             yolo.LABEL[1] *= yolo.LABEL[3];
-            yolos[selectedYolo] = yolo;
-            string LABEL = yolo.ClassNum + " " + yolo.LABEL[0] + " " + yolo.LABEL[1] + " " + yolo.LABEL[2] + " " + yolo.LABEL[3];
+            yolos[yoloCounter] = yolo;
 
+            string LABEL = yolo.ClassNum + " " + yolo.LABEL[0] + " " + yolo.LABEL[1] + " " + yolo.LABEL[2] + " " + yolo.LABEL[3];
             tbLabelList.Text += LABEL + "\n";
-        }        
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+
+            if (yoloCounter >= 0)
+            {
+                DeleteLine(yoloCounter);
+            }
+            if (yoloCounter != -1)
+            {
+                yoloCounter--;
+            }
+        }
+        private void DeleteLine(int a_line)
+        {
+            #region TEXTBOX
+            int start_index = tbLabelList.GetFirstCharIndexFromLine(a_line);
+            int count = tbLabelList.Lines[a_line].Length;
+
+            // Eat new line chars
+            if (a_line < tbLabelList.Lines.Length - 1)
+            {
+                count += tbLabelList.GetFirstCharIndexFromLine(a_line + 1) -
+                    ((start_index + count - 1) + 1);
+            }
+
+            tbLabelList.Text = tbLabelList.Text.Remove(start_index, count);
+            #endregion
+            #region YOLO AND RECTS
+            rectangles.RemoveAt(a_line);
+            yolos.RemoveAt(a_line);
+            pictureBox1.Refresh();
+            #endregion
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            if (yoloCounter >= 0)
+            {
+                for (; yoloCounter >= 0; yoloCounter--)
+                {
+                    DeleteLine(yoloCounter);
+                }
+            }
+        }
 
         /// <summary>
         /// Dörtgenin fiziksel özelliklerini yazdırır.

@@ -114,7 +114,7 @@
             this.btnDelete.TabIndex = 6;
             this.btnDelete.Text = "Delete(Last)";
             this.btnDelete.UseVisualStyleBackColor = true;
-
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnClear
             // 
@@ -124,7 +124,7 @@
             this.btnClear.TabIndex = 7;
             this.btnClear.Text = "ClearAll";
             this.btnClear.UseVisualStyleBackColor = true;
-            
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // FolderInfo
             // 
